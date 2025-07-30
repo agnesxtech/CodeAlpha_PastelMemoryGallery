@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pastel Memory Gallery</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Poppins&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Pastel Memory Gallery</h1>
+    <div class="controls">
+      <select id="fontSelector">
+        <option value="poppins">Poppins</option>
+        <option value="roboto">Roboto</option>
+        <option value="courier">Courier New</option>
+        <option value="playfair">Playfair Display</option>
+      </select>
+      <select id="themeSelector">
+        <option value="blue">Pastel Blue</option>
+        <option value="peach">Pastel Peach</option>
+        <option value="green">Pastel Green</option>
+        <option value="purple">Pastel Purple</option>
+      </select>
+    </div>
+    <nav>
+      <button onclick="showTab('home')">Home</button>
+      <button onclick="showTab('search')">Search</button>
+      <button onclick="showTab('trash')">Trash</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="tab active">
+      <input type="file" id="imageUpload" accept="image/*" multiple />
+      <select id="category">
+        <option value="people">People</option>
+        <option value="food">Food</option>
+        <option value="places">Places</option>
+        <option value="things">Things</option>
+        <option value="animals">Animals</option>
+      </select>
+      <button onclick="uploadImages()">Add Memory</button>
+      <div id="gallery"></div>
+    </section>
+
+    <section id="search" class="tab">
+      <input type="text" id="searchInput" placeholder="Search memories..." />
+      <input type="date" id="dateFilter" />
+      <div id="searchResults"></div>
+    </section>
+
+    <section id="trash" class="tab">
+      <h2>Trash</h2>
+      <div id="trashGallery"></div>
+    </section>
+  </main>
+
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImage" src="" alt="Enlarged memory" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
